@@ -26,19 +26,110 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Clothing Store'),
-        centerTitle: true,
-      ),
-      body: const Center(
-        child: Text(
-          'Welcome to Clothing Store 👕',
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
+  appBar: AppBar(
+    title: const Text('Clothing Store'),
+    centerTitle: true,
+  ),
+  body: Padding(
+  padding: const EdgeInsets.all(16),
+  child: Column(
+    const SizedBox(height: 20),
+
+const Text(
+  "Featured Products",
+  style: TextStyle(
+    fontSize: 22,
+    fontWeight: FontWeight.bold,
+  ),
+),
+
+const SizedBox(height: 10),
+
+Expanded(
+  child: ListView(
+    children: [
+      Card(
+        child: ListTile(
+          leading: Image.asset(
+            "assets/images/tshirt.png",
+            width: 60,
+          ),
+          title: const Text("Blue T-Shirt"),
+          subtitle: const Text("\$29.99 ⭐ 4.8"),
+          trailing: IconButton(
+            icon: const Icon(Icons.favorite_border),
+            onPressed: () {},
           ),
         ),
       ),
-    );
+    ],
+  ),
+),
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      const Text(
+        "Welcome 👋",
+        style: TextStyle(
+          fontSize: 28,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+
+      const SizedBox(height: 20),
+
+      TextField(
+        decoration: InputDecoration(
+          hintText: "Search Clothes...",
+          prefixIcon: Icon(Icons.search),
+          border: OutlineInputBorder(),
+        ),
+      ),
+
+      const SizedBox(height: 20),
+
+      Container(
+        height: 150,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: Colors.blue,
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: const Center(
+          child: Text(
+            "🔥 Summer Sale - 50% OFF",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      ),
+
+      const SizedBox(height: 20),
+
+      const Text(
+        "Categories",
+        style: TextStyle(
+          fontSize: 22,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+
+      const SizedBox(height: 10),
+
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: const [
+          Chip(label: Text("Men")),
+          Chip(label: Text("Women")),
+          Chip(label: Text("Kids")),
+        ],
+      ),
+    ],
+  ),
+),
+    
+);
   }
-}
+}     
